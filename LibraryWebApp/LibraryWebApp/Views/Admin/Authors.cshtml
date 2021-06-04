@@ -1,0 +1,61 @@
+﻿@model LibraryWebApp.Models.AuthorsListViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Authors</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/SignInPage.css" />
+</head>
+
+<body>
+    <div class="container">
+        <a asp-controller="Admin" asp-action="AddAuthor"><button type="button" class="btn btn-success" >Add Author</button></aasp-controller="Admin"></a>
+        <div class="row mt-5">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Number</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @{
+                            int counter = 1;
+
+                            foreach (var item in Model.Authors)
+                            {
+                                <tr>
+                                    <th scope="row">@counter</th>
+                                    <td>@item.FirstName</td>
+                                    <td>@item.LastName</td>
+
+                                    <td>
+                                        <a asp-controller="Admin" asp-action="AddBook" asp-route-id="@item.Id"><button type="button" class="btn btn-success"><i class="far fa-eye">AddBook</i></button></a>
+                                        <a asp-controller="Admin" asp-action="AuthorsBooks" asp-route-id="@item.Id"><button type="button" class="btn btn-primary"><i class="far fa-eye">Show Author's Books</i></button></a>
+                                        <a asp-controller="Admin" asp-action="EditAuthor" asp-route-id="@item.Id"><button type="button" class="btn btn-warning"><i class="far fa-eye">EditAuthor</i></button></a>
+                                        <a asp-controller="Admin" asp-action="RemoveAuthor" asp-route-id="@item.Id"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt">Remove Author</i></button></a>
+                                    </td>
+                                </tr>
+                                counter = counter + 1;
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

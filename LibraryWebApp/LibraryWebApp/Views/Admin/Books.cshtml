@@ -1,0 +1,58 @@
+﻿@model LibraryWebApp.Models.BooksListViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Books</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/SignInPage.css" />
+</head>
+
+<body>
+    <div class="container">
+        <a asp-controller="Admin" asp-action="Authors"><button type="button" class="btn btn-success"><i class="fas fa-edit">Add Book</i></button> </a>
+        <div class="row mt-5">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Number</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @{
+                            int counter = 1;
+
+                            foreach (var item in Model.Books)
+                            {
+                                <tr>
+                                    <th scope="row">@counter</th>
+                                    <td>@item.Name</td>
+                                  
+
+                                    <td>
+                                        <a asp-controller="Admin" asp-action="EditBook" asp-route-id="@item.Id"><button type="button" class="btn btn-warning"><i class="far fa-eye">EditBook</i></button></a>
+                                        <a asp-controller="Admin" asp-action="RemoveBook" asp-route-id="@item.Id"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt">Remove Book</i></button></a>
+                                    </td>
+                                </tr>
+                                counter = counter + 1;
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

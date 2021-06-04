@@ -1,0 +1,49 @@
+﻿@model LibraryWebApp.Models.Entities.BookEntity
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<meta name="viewport" content="width=device-width" />
+<title>Edit Book</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="AuthorEntityId" />
+    <div class="wrapper ">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <header class="card-header">
+
+                            <h4 class="card-title mt-2">Book Editor</h4>
+                        </header>
+                        <article class="card-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>Author's Firstname </label>
+                                        <input type="text" class="form-control" placeholder="" asp-for="Name">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-warning btn-block"> Edit </button>
+                                </div>
+                            </form>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</form>

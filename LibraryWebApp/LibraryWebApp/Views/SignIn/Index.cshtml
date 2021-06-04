@@ -1,0 +1,39 @@
+﻿@model LibraryWebApp.Models.LoginViewModel; 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/SignInPage.css" />
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown" method="post" enctype="multipart/form-data">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <!-- Icon -->
+        <div class="fadeIn first">
+
+        </div>
+
+        <!-- Login Form -->
+        <header class="card-header">
+
+            <h4 class="card-title mt-2" >Sign In</h4>
+        </header>
+        <form asp-controller="SignIn" asp-action="Index" method="post">
+            <input class="fadeIn second form-control" type="text" asp-for="Login"  placeholder="login">
+            <input class="fadeIn third form-control" type="password" asp-for="Password" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" asp-controller="SignIn" asp-action="Register">Register</a>
+        </div>
+
+    </div>
+</div>

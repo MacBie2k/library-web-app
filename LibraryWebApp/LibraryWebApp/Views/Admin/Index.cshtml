@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/SignInPage.css" />
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper" method="post" enctype="multipart/form-data">
+    <div id="formContent">
+
+
+        <header class="card-header">
+            <h4 class="card-title mt-2">Admin Panel</h4>
+        </header>
+        <a asp-controller="Admin" asp-action="Authors"><input class="btn btn-primary" type="submit" value="Authors"></a>
+        <a asp-controller="Admin" asp-action="Books"><input class="btn btn-primary" type="submit" value="Books"></a>
+        @*<a  asp-controller="admin" asp-action="users" ><input class="btn btn-primary" type="submit"value="users"></a>*@
+
+
+    </div>
+</div>

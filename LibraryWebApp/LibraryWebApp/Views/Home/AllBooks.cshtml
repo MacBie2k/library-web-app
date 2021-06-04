@@ -1,0 +1,59 @@
+﻿@model LibraryWebApp.Models.BooksListViewModel
+@{
+    ViewData["Title"] = "AllBooks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Books</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/SignInPage.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Number</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @{
+                            int counter = 1;
+
+                            foreach (var item in Model.Books)
+                            {
+                                <tr>
+                                    <th scope="row">@counter</th>
+                                    <td>@item.Name</td>
+
+
+                                    <td>
+                                        <a asp-controller="Home" asp-action="BorrowBook" asp-route-id="@item.Id"><button type="button" class="btn btn-success"><i class="far fa-eye">Borrow</i></button></a>
+                                    </td>
+                                </tr>
+                                counter = counter + 1;
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
